@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ffd1dc, #ffe6eb);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  width: 90%;
+  max-width: 350px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+h1 {
+  color: #ff4d6d;
+  font-family: 'Playfair Display', serif;
+}
+
+button {
+  border: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+#yes {
+  background: #ff4d6d;
+  color: white;
+}
+
+#no {
+  background: #ccc;
+}
+
+.hidden {
+  display: none;
+}
+
+img {
+  width: 100%;
+  border-radius: 15px;
+  margin-top: 15px;
+}
+
+.fade {
+  animation: fadeIn 2s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card" id="question">
+  <h1>Hey Chaitanya 💕</h1>
+  <p>Will you be my Valentine?</p>
+
+  <button id="no">NO 🥺</button>
+  <button id="yes">YES 😍</button>
+
+  <p>— Harshitha 🌸</p>
+</div>
+
+<div class="card hidden fade" id="result">
+  <h1>Yayyy 💖</h1>
+  <p><b>Happy Valentine’s Day 💘</b></p>
+
+  <img src="couple.jpg">
+
+  <audio id="song" src="perfect.mp3"></audio>
+</div>
+
+<script>
+const yes = document.getElementById("yes");
+const no = document.getElementById("no");
+const q = document.getElementById("question");
+const r = document.getElementById("result");
+const song = document.getElementById("song");
+
+no.onmouseover = () => {
+  no.style.position = "absolute";
+  no.style.left = Math.random()*80 + "%";
+  no.style.top = Math.random()*80 + "%";
+};
+
+yes.onclick = () => {
+  q.classList.add("hidden");
+  r.classList.remove("hidden");
+  song.volume = 0;
+  song.play();
+
+  let v = 0;
+  let fade = setInterval(() => {
+    if (v < 1) {
+      v += 0.02;
+      song.volume = v;
+    } else {
+      clearInterval(fade);
+    }
+  }, 200);
+};
+</script>
+
+</body>
+</html>
