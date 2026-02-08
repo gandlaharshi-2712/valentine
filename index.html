@@ -65,8 +65,8 @@ img {
 }
 
 @keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 </style>
 </head>
@@ -87,9 +87,11 @@ img {
   <h1>Yayyy 💖</h1>
   <p><b>Happy Valentine’s Day 💘</b></p>
 
-  <img src="couple.jpg">
+  <!-- Correct image filename -->
+  <img src="couple.jpeg" alt="Us together 💕">
 
-  <audio id="song" src="perfect.mp3"></audio>
+  <!-- Correct audio filename -->
+  <audio id="song" src="perfect.mpeg"></audio>
 </div>
 
 <script>
@@ -101,13 +103,14 @@ const song = document.getElementById("song");
 
 no.onmouseover = () => {
   no.style.position = "absolute";
-  no.style.left = Math.random()*80 + "%";
-  no.style.top = Math.random()*80 + "%";
+  no.style.left = Math.random() * 80 + "%";
+  no.style.top = Math.random() * 80 + "%";
 };
 
 yes.onclick = () => {
   q.classList.add("hidden");
   r.classList.remove("hidden");
+
   song.volume = 0;
   song.play();
 
