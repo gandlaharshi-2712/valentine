@@ -54,19 +54,24 @@ button {
   display: none;
 }
 
+/* 🌸 Image: slow fade-in ONCE */
 img {
   width: 100%;
   border-radius: 15px;
   margin-top: 15px;
-  animation: fadeInOut 5s ease-in-out infinite;
+  opacity: 0;
+  animation: fadeIn 4s ease forwards;
 }
 
+/* 💕 Caption */
 .caption {
   margin-top: 15px;
   font-size: 16px;
   color: #ff4d6d;
   font-family: 'Playfair Display', serif;
-  animation: fadeCaption 3s ease forwards;
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+  animation-delay: 1.5s;
 }
 
 .fade {
@@ -76,17 +81,6 @@ img {
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
-}
-
-@keyframes fadeInOut {
-  0% { opacity: 0; }
-  50% { opacity: 1; }
-  100% { opacity: 0; }
-}
-
-@keyframes fadeCaption {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 </style>
 </head>
@@ -107,12 +101,15 @@ img {
   <h1>Yayyy 💖</h1>
   <p><b>Happy Valentine’s Day 💘</b></p>
 
+  <!-- Photo -->
   <img src="couple.jpeg" alt="Us together 💕">
 
+  <!-- Caption -->
   <div class="caption">
     I Love You My LOVE, You're always meant to be MINE ❤️
   </div>
 
+  <!-- Song -->
   <audio id="song" src="perfect.mpeg"></audio>
 </div>
 
